@@ -1,16 +1,15 @@
 version: "3"
 services:
-    mailhog:
-        image: mailhog/mailhog
-        logging:
-            driver: "none" # disable saving logs
-        ports:
-            - 1025:1025 # smtp server
-            - 8025:8025 # web ui
-        restart: unless-stopped
-        networks:
-            - nginx-proxy
-
+  mailhog:
+    container_name: mailhog
+    image: mailhog/mailhog
+    logging:
+      driver: "none" # disable saving logs
+    ports:
+      - 1025:1025 # smtp server
+      - 8025:8025 # web ui
+    restart: unless-stopped
 networks:
-    nginx-proxy:
-        external: true
+  default:
+    name: nginx-proxy
+    external: true
