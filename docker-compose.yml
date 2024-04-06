@@ -9,9 +9,8 @@ services:
       - 1025:1025 # smtp server
       - 8025:8025 # web ui
     restart: unless-stopped
-    networks:
-      - nginx-proxy
 
 networks:
-  nginx-proxy:
+  default:
+    name: local
     external: true
